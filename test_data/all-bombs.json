@@ -1,0 +1,172 @@
+// TODO: Put all calls to backend api here
+// For now, simply export card JSON and any other object data from here
+
+export const cards = [
+{
+  "number": "200",
+  "code": "BOMB",
+  "name": "Bomb",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"BOMB","power":70,"missChance":0,"amount":1,"label":"Throw Bomb","description":"Throw a bomb at your opponent"}
+  ],
+  "energy": 10,
+  "damageFactor": 1,
+  "asleep": false,
+  "battlecry": "3...2...1",
+  "deathcry": "Boom!",
+  "image": "img/bomb.png"
+},
+{
+  "number": "201",
+  "code": "BOMB",
+  "name": "Bomb",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"BOMB","power":70,"missChance":0,"amount":1,"label":"Throw Bomb","description":"Throw a bomb at your opponent"}
+  ],
+  "energy": 10,
+  "damageFactor": 1,
+  "asleep": false,
+  "battlecry": "3...2...1",
+  "deathcry": "Boom!",
+  "image": "img/bomb.png"
+},
+{
+  "number": "202",
+  "code": "BOMB",
+  "name": "Bomb",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"BOMB","power":70,"missChance":0,"amount":1,"label":"Throw Bomb","description":"Throw a bomb at your opponent"}
+  ],
+  "energy": 10,
+  "damageFactor": 1,
+  "asleep": false,
+  "battlecry": "3...2...1",
+  "deathcry": "Boom!",
+  "image": "img/bomb.png"
+},
+{
+  "number": "203",
+  "code": "BOMB",
+  "name": "Bomb",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"BOMB","power":70,"missChance":0,"amount":1,"label":"Throw Bomb","description":"Throw a bomb at your opponent"}
+  ],
+  "energy": 10,
+  "damageFactor": 1,
+  "asleep": false,
+  "battlecry": "3...2...1",
+  "deathcry": "Boom!",
+  "image": "img/bomb.png"
+},
+{
+  "number": "204",
+  "code": "BOMB",
+  "name": "Bomb",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"BOMB","power":70,"missChance":0,"amount":1,"label":"Throw Bomb","description":"Throw a bomb at your opponent"}
+  ],
+  "energy": 10,
+  "damageFactor": 1,
+  "asleep": false,
+  "battlecry": "3...2...1",
+  "deathcry": "Boom!",
+  "image": "img/bomb.png"
+},
+{
+  "number": "205",
+  "code": "BOMB",
+  "name": "Bomb",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"BOMB","power":70,"missChance":0,"amount":1,"label":"Throw Bomb","description":"Throw a bomb at your opponent"}
+  ],
+  "energy": 10,
+  "damageFactor": 1,
+  "asleep": false,
+  "battlecry": "3...2...1",
+  "deathcry": "Boom!",
+  "image": "img/bomb.png"
+},
+{
+  "number": "206",
+  "code": "BOMB",
+  "name": "Bomb",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"BOMB","power":70,"missChance":0,"amount":1,"label":"Throw Bomb","description":"Throw a bomb at your opponent"}
+  ],
+  "energy": 10,
+  "damageFactor": 1,
+  "asleep": false,
+  "battlecry": "3...2...1",
+  "deathcry": "Boom!",
+  "image": "img/bomb.png"
+},
+{
+  "number": "207",
+  "code": "BOMB",
+  "name": "Bomb",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"BOMB","power":70,"missChance":0,"amount":1,"label":"Throw Bomb","description":"Throw a bomb at your opponent"}
+  ],
+  "energy": 10,
+  "damageFactor": 1,
+  "asleep": false,
+  "battlecry": "3...2...1",
+  "deathcry": "Boom!",
+  "image": "img/bomb.png"
+},
+{
+  "number": "208",
+  "code": "BOMB",
+  "name": "Bomb",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"BOMB","power":70,"missChance":0,"amount":1,"label":"Throw Bomb","description":"Throw a bomb at your opponent"}
+  ],
+  "energy": 10,
+  "damageFactor": 1,
+  "asleep": false,
+  "battlecry": "3...2...1",
+  "deathcry": "Boom!",
+  "image": "img/bomb.png"
+},
+{
+  "number": "209",
+  "code": "BOMB",
+  "name": "Bomb",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"BOMB","power":70,"missChance":0,"amount":1,"label":"Throw Bomb","description":"Throw a bomb at your opponent"}
+  ],
+  "energy": 10,
+  "damageFactor": 1,
+  "asleep": false,
+  "battlecry": "3...2...1",
+  "deathcry": "Boom!",
+  "image": "img/bomb.png"
+},
+{
+  "number": "210",
+  "code": "BOMB",
+  "name": "Bomb",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"BOMB","power":70,"missChance":0,"amount":1,"label":"Throw Bomb","description":"Throw a bomb at your opponent"}
+  ],
+  "energy": 10,
+  "damageFactor": 1,
+  "asleep": false,
+  "battlecry": "3...2...1",
+  "deathcry": "Boom!",
+  "image": "img/bomb.png"
+},
+{
+  "number": "211",
+  "code": "BOMB",
+  "name": "Bomb",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"BOMB","power":70,"missChance":0,"amount":1,"label":"Throw Bomb","description":"Throw a bomb at your opponent"}
+  ],
+  "energy": 10,
+  "damageFactor": 1,
+  "asleep": false,
+  "battlecry": "3...2...1",
+  "deathcry": "Boom!",
+  "image": "img/bomb.png"
+}];

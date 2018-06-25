@@ -1,0 +1,10 @@
+.modal {
+	&.loadingModal {
+		width: 100px;
+		margin-left: -70px; /* 20px padding present within modal */
+		.content { 
+			position: relative;
+			height: 80px;
+		}
+	}
+}

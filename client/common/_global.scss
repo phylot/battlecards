@@ -1,0 +1,155 @@
+/* WEB FONTS */
+@font-face {
+	font-family: 'impactreg';
+	src: url('common/fonts/impactreg.eot');
+	src: local('impactreg'), url('./fonts/impactreg.woff') format('woff'), url('./fonts/impactreg.ttf') format('truetype');
+}
+
+/* MIXINS */
+@mixin opacity-mixin($value) {
+	-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=$value)';
+	filter: alpha(opacity=$value);
+	-moz-opacity: $value;
+	-khtml-opacity: $value;
+	opacity: $value;
+}
+@mixin transition-mixin($rule...) {
+	-webkit-transition: $rule;
+	-moz-transition: $rule;
+	-o-transition: $rule;
+	transition: $rule;
+}
+@mixin transition-property-mixin($rule...) {
+	-webkit-transition-property: $rule;
+  -moz-transition-property: $rule;
+  -ms-transition-property: $rule;
+  -o-transition-property: $rule;
+  transition-property: $rule;
+}
+@mixin transition-duration-mixin($rule...) {
+	-webkit-transition-duration: $rule;
+  -moz-transition-duration: $rule;
+  -ms-transition-duration: $rule;
+  -o-transition-duration: $rule;
+  transition-duration: $rule;
+}
+@mixin transition-delay-mixin($rule...) {
+	-webkit-transition-delay: $rule;
+  -moz-transition-delay: $rule;
+  -ms-transition-delay: $rule;
+  -o-transition-delay: $rule;
+  transition-delay: $rule;
+}
+@mixin transform-mixin($rule) {
+	-webkit-transform: $rule;
+	-moz-transform: $rule;
+	-ms-transform: $rule;
+	-o-transform: $rule;
+	transform: $rule;
+}
+@mixin animation-mixin($rule...) {
+	-webkit-animation: $rule;
+	-moz-animation: $rule;
+	-o-animation: $rule;
+	animation: $rule;
+}
+@mixin border-radius-mixin($rule) {
+	-webkit-border-radius: $rule;
+	-moz-border-radius: $rule;
+	border-radius: $rule;
+}
+@mixin logo-mixin($rotate, $scale) {
+	text-align: center;
+	letter-spacing: 10px;
+	text-indent: 10px;
+	font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: normal;
+	@if $rotate and $scale != '' {
+		@include transform-mixin(rotate(-10deg) scale($scale));
+	} @else if $rotate and $scale == '' {
+		@include transform-mixin(rotate(-10deg));
+	} @else {
+		@include transform-mixin(scale($scale));
+	}
+	span {
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+		letter-spacing: normal;
+		text-indent: 0;
+		font-family: 'impactreg';
+		font-size: 56px;
+		font-weight: bold;
+	}
+}
+@mixin noselect-mixin {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+	                      supported by Chrome and Opera */
+}
+
+/* SHARED ANIMATIONS */
+
+// TODO: Use keyframes mixin for all animations
+
+// keyframes mixin
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+
+@keyframes fade {
+	0% { @include opacity-mixin(0); }
+	100% { @include opacity-mixin(1); }
+}
+@keyframes transparentBlinker {
+	50% { @include opacity-mixin(0.5); }
+}
+@keyframes abruptBlinker {  
+	0% { @include opacity-mixin(1); }
+	49% { @include opacity-mixin(1); }
+	50% { @include opacity-mixin(0); }
+	100% { @include opacity-mixin(0); }
+}
+@include keyframes(intBackgroundBlinker) {
+  0% { background-color: #000; }
+	10% { background-color: Red; }
+	50% { background-color: Red; }
+	90% { background-color: Red; }
+	100% { background-color: #000; }
+}
+@include keyframes(intBorderBlinker) {
+  0% { border-color: #000; }
+	10% { border-color: Red; }
+	50% { border-color: Red; }
+	90% { border-color: Red; }
+	100% { border-color: #000; }
+}
+@keyframes popIn {
+	50% { @include transform-mixin(scale(1.2)); }
+}
+@keyframes popOut {
+	50% { @include transform-mixin(scale(1.2)); }
+}
+@include keyframes(rumble) {
+  0% { transform: rotate(0deg); }
+  25% { transform: translate(2px, 0px) rotate(-3deg); }
+  50% { transform: translate(0px, -2px) rotate(0deg); }
+  75% { transform: translate(-2px, 0px) rotate(3deg); }
+  100% { transform: translate(0px, 2px) rotate(0deg); } 
+}

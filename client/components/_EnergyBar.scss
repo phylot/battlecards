@@ -1,0 +1,22 @@
+.energyBar {
+	position: absolute;
+	top: 56px;
+	left: 0;
+	width: 240px;
+	.border {
+		margin: 0 5px;
+		border: 1px solid #545454;
+		background-color: #545454;
+		overflow: hidden;
+		.bar {
+			width: 90%;
+			height: 16px;
+			background: #07ea00; /* Old browsers */
+			background: -moz-linear-gradient(left, #ff0000 0%, #ff0000 25%, #b5e800 25%, #f9ed00 25%, #f9ed00 50%, #07ea00 50%, #07ea00 50%, #07ea00 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(left, #ff0000 0%,#ff0000 25%,#b5e800 25%,#f9ed00 25%,#f9ed00 50%,#07ea00 50%,#07ea00 50%,#07ea00 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to right, #ff0000 0%,#ff0000 25%,#b5e800 25%,#f9ed00 25%,#f9ed00 50%,#07ea00 50%,#07ea00 50%,#07ea00 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', endColorstr='#07ea00',GradientType=1 ); /* IE6-9 */
+			background-size: 240px;
+		}
+	}
+}

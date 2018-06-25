@@ -1,0 +1,232 @@
+.deck {
+	z-index: 600;
+	position: absolute;
+	top: -1px;
+	width: 262px;
+	height: 386px;
+	&.deckOne { 
+		right: -300px;
+		.deckCounter { 
+			left: -15px;
+			.bombCounter { left: 0; }
+		}
+		.deckCard {
+			&.card1 { left: 0; }
+			&.card2 { left: 6px; }
+			&.card3 { left: 12px; }
+			&.card4 { left: 18px; }
+			&.card5 { left: 24px; }
+		}
+		.bombIcon { left: -35px; }
+	}
+	&.deckTwo { 
+		left: -300px;
+		.deckCounter { 
+			right: -15px;
+			.bombCounter { right: 0; }
+		}
+		.deckCard {
+			&.card1 { right: 0; }
+			&.card2 { right: 6px; }
+			&.card3 { right: 12px; }
+			&.card4 { right: 18px; }
+			&.card5 { right: 24px; }
+		}
+		.bombIcon { right: -35px; }
+	}
+	&.damageFlash {
+		.deckCard {
+			.flashOverlay {
+				display: block;
+				background-color: Red;
+				@include animation-mixin(transparentBlinker 0.2s linear infinite);
+			}
+		}
+		.deckCounter .counter .flashOverlay {
+			display: block;
+			background-color: Red;
+			@include animation-mixin(transparentBlinker 0.2s linear infinite);
+		}
+	}
+	&.rumble { @include animation-mixin(rumble .0625s infinite linear); }
+	&.bombPresent {
+		&.blastWarning .bombCounter {
+			@include animation-mixin(intBackgroundBlinker 0.3s linear infinite, popIn 0.3s infinite);
+			.count { display: none; }
+			.warning { display: block; }
+		}
+		.deckCounter .bombCounter { display: block; }
+	}
+	&.healPulse {
+		.deckCard {
+			.flashOverlay {
+				display: block;
+				background-color: #0ec911;
+				@include animation-mixin(transparentBlinker 2s linear infinite);
+			}
+		}
+	}
+	&.empty {
+		.deckCounter .counter { background-color: #d3d3d3; }
+	}
+	.deckCounter {
+		z-index: 650;
+		position: absolute;
+		top: -15px;
+		width: 60px;
+		height: 60px;
+		text-align: center;
+		font-family: 'impactreg';
+		font-size: 30px;
+		font-weight: bold;
+		color: #fff;
+		.counter {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			@include border-radius-mixin(50%);
+			background-color: #000;
+			overflow: hidden;
+			.flashOverlay {
+				display: none;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				@include border-radius-mixin(50%);
+				@include opacity-mixin(0);
+			}
+			span {
+				display: block;
+				line-height: 60px;
+			}
+		}
+		.bombCounter {
+			display: none;
+			position: absolute;
+			bottom: -40px;
+			width: 45px;
+			height: 45px;
+			font-size: 20px;
+			border: 1px solid #fff;
+			@include border-radius-mixin(50%);
+			background: Red url('./img/bomb-ico.png') 22px 12px / 20px 20px no-repeat;
+			.count, .warning {
+				position: absolute;
+				display: block;
+				width: 25px;
+				line-height: 45px;
+				text-align: center;
+			}
+			.warning { 
+				display: none;
+				font-size: 26px;
+				font-weight: normal;
+			}
+		}
+	}
+	.deckPlaceholder {
+		z-index: 610;
+		width: 260px;
+		height: 384px;
+		.inner {
+			position: relative;
+			width: 250px;
+			height: 374px;
+			border: 5px dashed #d3d3d3;
+			color: #d3d3d3;
+			.cardLogo {
+				position: absolute;
+				top: 132px;
+				width: 250px;
+				@include logo-mixin(true, '');
+			}
+		}
+	}
+	.deckCard {
+		z-index: 630;
+		position: absolute;
+		top: 0;
+		width: 260px;
+		height: 384px;
+		border: 1px solid #fff;
+		background-color: #fff;
+		&.card1 .bombIcon { top: 70%; }
+		&.card2 .bombIcon { top: 60%; }
+		&.card3 .bombIcon { top: 50%; }
+		&.card4 .bombIcon { top: 40%; }
+		&.card5 .bombIcon { top: 30%; }
+		&.animationCard {
+			@include opacity-mixin(0);
+			@include transition-mixin(none); /* no animation on class removal */
+			z-index: 620;
+			top: -300px;
+			left: 0;
+			border: 0;
+			&.slideDown {
+				@include opacity-mixin(1);
+				@include transform-mixin(translateY(300px));  
+				@include transition-mixin(.6s ease-out all);
+			}
+		}
+		&.bomb {
+			.inner { 
+				@include animation-mixin(intBorderBlinker 3s linear infinite);
+				.bombIcon {
+					display: block;
+					@include animation-mixin(intBackgroundBlinker 3s linear infinite);
+				}
+			}
+			&.blastImminent {
+				.inner {
+					@include animation-mixin(intBorderBlinker 0.4s linear infinite);
+					.bombIcon { 
+						background-image: none;
+						@include animation-mixin(intBackgroundBlinker 0.3s linear infinite, popIn 0.3s infinite);	
+						.warning {
+							display: block; 
+						}
+					}
+				}
+			}
+		}
+		.flashOverlay {
+			display: none;
+			z-index: 640;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			@include opacity-mixin(0);
+		}
+		.inner {
+			position: relative;
+			width: 250px;
+			height: 374px;
+			border: 5px solid #000;
+			.cardLogo {
+				position: absolute;
+				top: 132px;
+				width: 250px;
+				@include logo-mixin(true, '');
+			}
+			.bombIcon { 
+				display: none;
+				position: absolute;
+				width: 40px;
+				height: 40px;
+				border: 1px solid #fff;
+				@include border-radius-mixin(50%);
+				background: #000 url(./img/bomb-ico.png) center center / 24px 24px no-repeat;
+				.warning {
+					display: none;
+					width: 40px;
+					height: 40px;
+					line-height: 40px;
+					text-align: center;
+					font-size: 36px;
+					font-weight: bold;
+					color: #fff;
+				}
+			}
+		}
+	}
+}

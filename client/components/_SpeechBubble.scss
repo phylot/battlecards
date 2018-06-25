@@ -1,0 +1,88 @@
+.speechBubble {
+	z-index: 830;
+	position: absolute;
+	top: -70px;
+	width: 180px;
+	text-align: center;
+	background-color: #fff;
+	border: 5px solid #000;
+	@include border-radius-mixin(30px);
+	@include transition-mixin(visibility .3s, opacity .3s);
+	&.thoughtBubble {
+		width: 72px;
+		.arrow { display: none; }
+		.bubbles { display: block; }
+	}
+	&.popIn { 
+		visibility: visible;
+		@include animation-mixin(popIn 0.3s 1);
+		@include opacity-mixin(1);
+	}
+	&.popOut {
+		visibility: hidden;
+		@include animation-mixin(popOut 0.3s 1);
+		@include opacity-mixin(0);
+	}
+	.inner {
+		position: relative;
+		margin: 15px;
+		p { 
+			margin: 0;
+			padding: 0;
+			font-weight: bold;
+		}
+	}
+	/* CSS "triangle" */
+	.arrow { 
+		display: block;
+		position: absolute;
+		bottom: -16px;
+		width: 20px;
+		height: 20px; 
+		border-right: 5px solid #000;
+		border-bottom: 5px solid #000;
+		background: #fff;
+	  @include transform-mixin(rotate(45deg));
+	}
+	.bubbles {
+		display: none;
+		position: absolute;
+		bottom: -63px;
+		width: 45px;
+		height: 55px;
+		.bubbleOne, .bubbleTwo {
+			position: absolute;
+			border: 5px solid #000;
+			@include border-radius-mixin(50%);
+			background-color: #fff;
+		}
+		.bubbleOne {
+			top: 0;
+			width: 20px;
+			height: 20px;
+		}
+		.bubbleTwo {
+			bottom: 0;
+			width: 12px;
+			height: 12px;
+		}
+	}
+}
+.playerOne .speechBubble { 
+	right: -37px; 
+	.bubbles {
+		right: 33px;
+		.bubbleOne { right: 0; }
+		.bubbleTwo { left: 0; }
+	}
+	.arrow { left: 40px; }
+}
+.playerTwo .speechBubble { 
+	left: -37px;
+	.bubbles {
+		left: 33px;
+		.bubbleOne { left: 0; }
+		.bubbleTwo { right: 0; }
+	}
+	.arrow { right: 40px; }
+}

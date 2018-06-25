@@ -1,0 +1,338 @@
+.card {
+	z-index: 620;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	width: 260px;
+	height: 384px;
+	margin: 0 10px;
+	&.playerOne {
+		.flip-container { 
+			@include transform-mixin(translateX(309px));
+			&.slideIn {
+				@include transform-mixin(translateX(0));
+			}
+		}
+		.playerMarker { 
+			left: -20px;
+			background-color: #00bdce;
+		}
+	}
+	&.playerTwo {
+		.flip-container { 
+			@include transform-mixin(translateX(-309px));
+			&.slideIn {
+				@include transform-mixin(translateX(0));
+			}
+		}
+		.playerMarker { 
+			right: -20px;
+			background-color: #f45100;
+		}
+	}
+	.cardPlaceholder {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 260px;
+		height: 384px;
+		color: #d3d3d3;
+		.inner {
+			height: 374px;
+			border: 5px dashed #d3d3d3;
+			.cardLogo {
+				position: absolute;
+				top: 132px;
+				width: 250px;
+	 			@include logo-mixin(true, '');
+			}
+		}
+	}
+	.flip-container {
+		width: 260px;
+		height: 384px;
+		@include opacity-mixin(0);
+		@include transition-mixin(.6s ease-in all);
+		&.slideIn {
+			@include opacity-mixin(1);
+			// @include transform-mixin(translateX(0)); // TODO: Could move here from above, to prevent repeated code. Look at implications
+			@include transition-mixin(.6s ease-out all);
+			&.slideUp {
+				@include opacity-mixin(0);
+				@include transform-mixin(translateY(-200px));
+				@include transition-mixin(.6s ease-out all);
+			}
+		}
+		&.hidden { display: none; }
+	}
+	.front {
+		width: 250px;
+		height: 374px;
+		border: 5px solid #fff;
+		background-color: #f2f2f2;
+		-webkit-box-shadow: 0px 0px 28px #000;
+		-moz-box-shadow: 0px 0px 28px #000;
+		box-shadow: 0px 0px 28px #000;
+	}
+	.back {
+		width: 250px;
+		height: 374px;
+		border: 5px solid #000;
+		background-color: #fff;
+		.cardLogo {
+			position: absolute;
+			top: 132px;
+			width: 250px;
+ 			@include logo-mixin(true, '');
+		}
+	}
+	.cardImage { 
+		z-index: 710;
+		position: absolute;
+		top: 20px;
+		left: 50px;
+		width: 150px;
+		height: 150px;
+		overflow: hidden;
+		img { 
+			width: 150px;
+			margin: 0 auto;
+		}
+	}
+	.cardStats { 
+		position: absolute;
+		top: 170px;
+		left: 5px;
+		width: 240px;
+		height: 199px;
+		.cardNumber, .cardTitle { 
+			position: absolute;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			white-space: nowrap;
+			overflow: hidden;
+		}	
+		p.cardNumber { top: 5px; }
+		h1.cardTitle {
+			position: absolute;
+			top: 28px;
+			font-size: 18px;
+		}
+		.cardButtons {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 120px;
+			.button {
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+				width: 110px;
+				height: 50px;
+				margin: 5px;
+				padding: 5px;
+				border: none;
+				text-align: center;
+				text-decoration: none;
+				font-size: 12px;
+				font-weight: bold;
+				color: #fff;
+				@include noselect-mixin;
+				cursor: pointer;
+				background-color: #139cf2;
+				overflow: hidden;
+				outline: none;
+				.attackAmount {
+					position: absolute;
+					display: block;
+					top: 5px;
+					right: 5px;
+					height: 15px;
+					line-height: 15px;
+					font-size: 12px;
+					font-weight: bold;
+					&.infinite { font-size: 22px; }
+				}
+				&:hover { background-color: #3db0f7; }
+				&.primary {
+					background-color: #f22618;
+					color: #fff;
+					&:hover { background-color: #fc4137; }
+					&:disabled, [disabled] {
+						color: #f97c75;
+						&.used {
+							color: #bfbfbf;
+							background-color: #9b9b9b;
+						}
+					}
+				}
+				&.secondary {
+					background-color: #eaa819;
+					color: #fff;
+					&:hover { background-color: #f4b835; }
+					&:disabled, [disabled] {
+						color: #f2cd82;
+						&.used {
+							color: #bfbfbf;
+							background-color: #9b9b9b;
+						}
+					}
+				}
+				&.special {
+					background-color: #902edb;
+					color: #fff;
+					&:hover { background-color: #a556e2; }
+					&:disabled, [disabled] {
+						color: #b771fc;
+						&.used {
+							color: #bfbfbf;
+							background-color: #9b9b9b;
+						}
+					}
+				}
+				&.selected {
+					&:disabled, [disabled] {
+						color: #fff;
+						background-color: #139cf2;
+					}
+				}
+				&:disabled, [disabled] { 
+					pointer-events: none;
+					cursor: not-allowed;
+					color: #6dbff2;
+				}
+			}
+		}
+	}
+	.playerMarker {
+		display: none;
+		z-index: 810;
+		position: absolute;
+		top: -20px;
+		width: 80px;
+		height: 80px;
+		text-align: center;
+		font-size: 15px;
+		font-weight: bold;
+		color: #fff;
+		@include border-radius-mixin(50%);
+		overflow: hidden;
+		&.visible { 
+			display: block;
+			@include animation-mixin(abruptBlinker 0.25s linear 6);
+		}
+		.wrap {
+			position: absolute;
+			width: 80px;
+			height: 34px;
+			top: 50%; 
+			left: 0;
+			margin-top: -17px;
+			span {
+				display: block;
+			}
+		}
+	}
+	.flashOverlay {
+		z-index: 800;
+		position: absolute;
+		width: 100%;
+		height: 0;
+		background-color: transparent;
+		@include opacity-mixin(0);
+		// @include transition-mixin(opacity 1s, background 1s, height 0 1s);
+		@include transition-property-mixin(opacity, background, height);
+		@include transition-duration-mixin(0.5s, 1s, 0s);
+		@include transition-delay-mixin(0s, 0s, 1s);
+		&.damageFlash {
+			height: 100%;
+			background-color: Red;
+			@include animation-mixin(transparentBlinker 0.2s linear infinite);
+			// @include transition-mixin(height 0);
+			@include transition-property-mixin(height);
+			@include transition-duration-mixin(0s);
+			@include transition-delay-mixin(0s);
+		}
+		&.sleepPulse {
+			height: 100%;
+			background-color: #d400ff;
+			@include animation-mixin(transparentBlinker 2s linear 2);
+			// @include transition-mixin(height 0s 0s);
+			@include transition-property-mixin(height);
+			@include transition-duration-mixin(0s);
+			@include transition-delay-mixin(0s);
+		}
+		&.asleep {
+			height: 100%;
+			background-color: #d400ff;
+			@include opacity-mixin(0.5);
+			// @include transition-mixin(opacity 0.5s, background 0.5s, height 0);
+			@include transition-property-mixin(opacity, height);
+			@include transition-duration-mixin(0.5s, 0s);
+			@include transition-delay-mixin(0s, 0s);
+			&.damageFlash {
+				background-color: Red;
+				@include opacity-mixin(0);
+				@include animation-mixin(transparentBlinker 0.2s linear infinite);
+				// @include transition-mixin(height 0);
+				@include transition-property-mixin(height);
+				@include transition-duration-mixin(0s);
+				@include transition-delay-mixin(0s);
+			}
+		}
+	}
+}
+
+/* FLIP ANIMATION */
+/* entire container, keeps perspective */
+.flip-container {
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	perspective: 1000px;
+	/*width: 260px;
+	height: 384px;*/
+	/*.front, .back {
+		width: 250px;
+		height: 374px;
+	}*/
+}
+
+/* flip the pane */
+.flip-container.flip .flipper {
+	@include transform-mixin(rotateY(180deg));
+}
+.playerOne .flip-container.flip .flipper { /* Reverse rotation for player 1 */
+	@include transform-mixin(rotateY(-180deg));
+}
+
+/* flip speed goes here */
+.flipper {
+	@include transition-mixin(0.6s);
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	@include transform-mixin(rotateY(0deg));
+}
+
+/* back, initially hidden pane */
+.back {
+	@include transform-mixin(rotateY(180deg));
+}

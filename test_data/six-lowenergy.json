@@ -1,0 +1,106 @@
+// TODO: Put all calls to backend api here
+// For now, simply export card JSON and any other object data from here
+
+export const cards = [
+{
+  "number": "001",
+  "code": "JEANLUCPICARD",
+  "name": "Jean-Luc Picard",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"JAB","power":15,"missChance":5,"amount":"INFINITE","label":"Jab","description":"A swift jab to the face"},
+      {"type":"PRIMARY","effect":"DAMAGE","name":"FLURRY","power":35,"missChance":10,"amount":2,"label":"Flurry","description":"A flurry of punches to the face"},
+      {"type":"SECONDARY","effect":"SLEEP","name":"HYPNOTIZE","power":0,"missChance":5,"amount":2,"label":"Hypnotize","description":"Put your opponenent to sleep"},
+      {"type":"SPECIAL","effect":"RESURRECT","name":"RESURRECT","power":0,"missChance":0,"amount":2,"label":"Resurrect","description":"Resurrect a random card from the Graveyard"}
+  ],
+  "energy": 10,
+  "damageFactor": 1.3,
+  "asleep": false,
+  "battlecry": "Make it so",
+  "deathcry": "Wesley!!.....",
+  "image": "img/picard.jpg"
+},
+{
+  "number": "002",
+  "code": "JEFFGOLDBLUM",
+  "name": "Jeff Goldblum",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"JAB","power":15,"missChance":5,"amount":"INFINITE","label":"Jab","description":"A swift jab to the face"},
+      {"type":"PRIMARY","effect":"DAMAGE","name":"FLURRY","power":35,"missChance":10,"amount":2,"label":"Flurry","description":"A flurry of punches to the face"},
+      {"type":"SECONDARY","effect":"SLEEP","name":"HYPNOTIZE","power":0,"missChance":5,"amount":2,"label":"Hypnotize","description":"Put your opponenent to sleep"},
+      {"type":"SPECIAL","effect":"DAMAGE","name":"RAPTORATTACK","power":50,"missChance":0,"amount":2,"label":"Raptor Attack","description":"Jeff rides a Raptor into battle"}
+  ],
+  "energy": 10,
+  "damageFactor": 1.1,
+  "asleep": false,
+  "battlecry": "Life, uh... finds a way",
+  "deathcry": "I'm, uh... dead",
+  "image": "img/goldblum.jpg"
+},
+{
+  "number": "003",
+  "code": "MORGANFREEMAN",
+  "name": "Morgan Freeman",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"JAB","power":15,"missChance":5,"amount":"INFINITE","label":"Jab","description":"A swift jab to the face"},
+      {"type":"PRIMARY","effect":"DAMAGE","name":"FLURRY","power":35,"missChance":10,"amount":2,"label":"Flurry","description":"A flurry of punches to the face"},
+      {"type":"SECONDARY","effect":"SLEEP","name":"HYPNOTIZE","power":0,"missChance":5,"amount":2,"label":"Hypnotize","description":"Put your opponenent to sleep"},
+      {"type":"SPECIAL","effect":"RESURRECT","name":"RESURRECT","power":0,"missChance":0,"amount":2,"label":"Resurrect","description":"Resurrect a random card from the Graveyard"}
+  ],
+  "energy": 10,
+  "damageFactor": 1.3,
+  "asleep": false,
+  "battlecry": "I'm the one. The Divine Being. Alpha and Omega.",
+  "deathcry": "My time has come.",
+  "image": "img/freeman.jpg"
+},
+{
+  "number": "004",
+  "code": "WILLIAMTRIKER",
+  "name": "William T. Riker",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"JAB","power":15,"missChance":5,"amount":"INFINITE","label":"Jab","description":"A swift jab to the face"},
+      {"type":"PRIMARY","effect":"DAMAGE","name":"FLURRY","power":35,"missChance":10,"amount":2,"label":"Flurry","description":"A flurry of punches to the face"},
+      {"type":"SECONDARY","effect":"SLEEP","name":"HYPNOTIZE","power":0,"missChance":5,"amount":2,"label":"Hypnotize","description":"Put your opponenent to sleep"},
+      {"type":"SPECIAL","effect":"DAMAGE","name":"MEGAPUNCH","power":50,"missChance":0,"amount":2,"label":"Mega Punch","description":"A massive punch to the face and arms"}
+  ],
+  "energy": 10,
+  "damageFactor": 1,
+  "asleep": false,
+  "battlecry": "My beard is my strength",
+  "deathcry": "You have bested me sir",
+  "image": "img/riker.jpg"
+},
+{
+  "number": "005",
+  "code": "WILLSMITH",
+  "name": "Will Smith",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"JAB","power":15,"missChance":5,"amount":"INFINITE","label":"Jab","description":"A swift jab to the face"},
+      {"type":"PRIMARY","effect":"DAMAGE","name":"FLURRY","power":35,"missChance":10,"amount":2,"label":"Flurry","description":"A flurry of punches to the face"},
+      {"type":"SECONDARY","effect":"SLEEP","name":"HYPNOTIZE","power":0,"missChance":5,"amount":2,"label":"Hypnotize","description":"Put your opponenent to sleep"},
+      {"type":"SPECIAL","effect":"DAMAGE","name":"MEGAPUNCH","power":50,"missChance":0,"amount":2,"label":"Mega Punch","description":"A massive punch to the face and arms"}
+  ],
+  "energy": 10,
+  "damageFactor": 1,
+  "asleep": false,
+  "battlecry": "In West Philadelphia, born and raised...",
+  "deathcry": "Peace out",
+  "image": "img/willsmith.jpg"
+},
+{
+  "number": "006",
+  "code": "SEANBEAN",
+  "name": "Sean Bean",
+  "attacks": [
+      {"type":"PRIMARY","effect":"DAMAGE","name":"JAB","power":15,"missChance":5,"amount":"INFINITE","label":"Jab","description":"A swift jab to the face"},
+      {"type":"PRIMARY","effect":"DAMAGE","name":"FLURRY","power":35,"missChance":10,"amount":2,"label":"Flurry","description":"A flurry of punches to the face"},
+      {"type":"SECONDARY","effect":"SLEEP","name":"HYPNOTIZE","power":0,"missChance":5,"amount":2,"label":"Hypnotize","description":"Put your opponenent to sleep"},
+      {"type":"SPECIAL","effect":"DAMAGE","name":"MEGAPUNCH","power":50,"missChance":0,"amount":2,"label":"Northern Punch","description":"A massive punch to the face and arms"}
+  ],
+  "energy": 10,
+  "damageFactor": 1,
+  "asleep": false,
+  "battlecry": "av that y' bugger",
+  "deathcry": "y' bloody bugger...",
+  "image": "img/bean.jpg"
+}];
